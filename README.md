@@ -44,6 +44,22 @@ A physics-based simulation tool to calculate projectile motion characteristics u
 
 ---
 
+## 🖼 ASCII Pattern Generator
+
+A console-based program that creates a symmetric ASCII art pattern composed of `x` characters. The design is rendered using nested `for` loops without any function abstraction, ideal for understanding loop control, spacing, and basic console output formatting.
+
+### Features
+
+- Symmetric pattern using spaces and characters
+- Alternating top-bottom and center parts over multiple repetitions
+- Fully implemented using nested `for` loops (no functions)
+
+### File
+
+- `ascii-pattern.cpp`: Contains the ASCII pattern generator logic using loop constructs only.
+
+---
+
 ## 🛠 Requirements
 
 - A C++ compiler (e.g., g++, clang++)
@@ -61,6 +77,11 @@ g++ projectile-simulator.cpp -o projectile-simulator
 ./projectile-simulator
 ```
 
+```bash
+g++ ascii-pattern.cpp -o ascii-pattern
+./ascii-pattern
+```
+
 ---
 
 ## 📁 Project Structure
@@ -68,7 +89,8 @@ g++ projectile-simulator.cpp -o projectile-simulator
 ```
 cpp-exercises/
 ├── math-toolkit.cpp
-└── projectile-simulator.cpp
+├── projectile-simulator.cpp
+└── ascii-pattern.cpp
 ```
 
 ---
