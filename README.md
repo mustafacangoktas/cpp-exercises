@@ -1,6 +1,7 @@
 # C++ Exercise
 
-This repository contains beginner-friendly C++ console applications that demonstrate practical programming concepts through interactive utilities:
+This repository contains beginner-friendly C++ console applications that demonstrate practical programming concepts
+through interactive utilities:
 
 ## 🧮 Math Toolkit
 
@@ -14,7 +15,8 @@ An interactive command-line calculator that supports a range of mathematical ope
 
 ### How It Works
 
-The program presents a simple menu-based interface. Based on the user's selection, it performs the corresponding operation on the provided input(s). Input validation and common error handling (e.g., division by zero) are included.
+The program presents a simple menu-based interface. Based on the user's selection, it performs the corresponding
+operation on the provided input(s). Input validation and common error handling (e.g., division by zero) are included.
 
 ### File
 
@@ -46,7 +48,9 @@ A physics-based simulation tool to calculate projectile motion characteristics u
 
 ## 🖼 ASCII Pattern Generator
 
-A console-based program that creates a symmetric ASCII art pattern composed of `x` characters. The design is rendered using nested `for` loops without any function abstraction, ideal for understanding loop control, spacing, and basic console output formatting.
+A console-based program that creates a symmetric ASCII art pattern composed of `x` characters. The design is rendered
+using nested `for` loops without any function abstraction, ideal for understanding loop control, spacing, and basic
+console output formatting.
 
 ### Features
 
@@ -60,6 +64,27 @@ A console-based program that creates a symmetric ASCII art pattern composed of `
 
 ---
 
+## 📋 Attendance Checker
+
+A simulation that generates and analyzes a random attendance matrix for 60 students over 10 weeks.
+
+### Features
+
+- Randomized attendance data with weighted probabilities:
+    - 80% chance of being present
+    - 15% chance of being absent
+    - 5% chance of proxy attendance (signed by someone else)
+- Fails students with more than 4 absences or more than 1 proxy sign
+- Outputs:
+    - Number of passed/failed students
+    - Students with proxy signatures
+
+### File
+
+- `attendance-checker.cpp`: Simulates and analyzes randomized student attendance data.
+
+---
+
 ## 🛠 Requirements
 
 - A C++ compiler (e.g., g++, clang++)
@@ -70,7 +95,7 @@ A console-based program that creates a symmetric ASCII art pattern composed of `
 ```bash
 g++ math-toolkit.cpp -o math-toolkit
 ./math-toolkit
-```
+````
 
 ```bash
 g++ projectile-simulator.cpp -o projectile-simulator
@@ -82,6 +107,11 @@ g++ ascii-pattern.cpp -o ascii-pattern
 ./ascii-pattern
 ```
 
+```bash
+g++ attendance-checker.cpp -o attendance-checker
+./attendance-checker
+```
+
 ---
 
 ## 📁 Project Structure
@@ -90,7 +120,8 @@ g++ ascii-pattern.cpp -o ascii-pattern
 cpp-exercises/
 ├── math-toolkit.cpp
 ├── projectile-simulator.cpp
-└── ascii-pattern.cpp
+├── ascii-pattern.cpp
+└── attendance-checker.cpp
 ```
 
 ---
