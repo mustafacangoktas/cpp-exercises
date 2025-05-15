@@ -11,61 +11,61 @@ int main() {
     srand(time(0));
 
     int matrix[studentCount][weekCount];
-    string names[studentCount];
+    string names[10] = {"James", "Emma", "Michael", "Olivia", "William", "Ava", "Joseph", "Sophia", "Daniel",
+                        "Isabella"};
+    string lastnames[6] = {"Smith", "Johnson", "Brown", "Williams", "Jones", "Garcia"};
+    string fullNames[studentCount];
 
-    // Generate student names
+    // Generate 60 unique full names
     for (int i = 0; i < studentCount; i++) {
-        names[i] = "Student" + to_string(i + 1);
+        fullNames[i] = names[i % 10] + " " + lastnames[i % 6];
     }
 
-    // Fill the attendance matrix with custom probabilities
+    // Fill the attendance matrix
     for (int i = 0; i < studentCount; i++) {
         for (int j = 0; j < weekCount; j++) {
-            int randomValue = rand() % 100; // Random number between 0-99
+            int randomValue = rand() % 100;
 
             if (randomValue < 5) {
-                // 5% probability (0-4)
                 matrix[i][j] = 2; // signed by someone else
             } else if (randomValue < 20) {
-                // 15% probability (5-19)
                 matrix[i][j] = 0; // absent
             } else {
-                // 80% probability (20-99)
                 matrix[i][j] = 1; // present
             }
         }
     }
 
-    int passCount = 0, failCount = 0, totalProxySign = 0;
-    string proxySigners[studentCount];  // Students who had someone else sign for them
+    int passCount = 0, failCount = 0;
+
+    cout << "--- Student Attendance Report ---" << endl;
 
     for (int i = 0; i < studentCount; i++) {
-        int absenceCount = 0;
-        int proxySignCount = 0;
+        int presentCount = 0;
+        int absentCount = 0;
+        int proxyCount = 0;
 
         for (int j = 0; j < weekCount; j++) {
-            if (matrix[i][j] == 0) absenceCount++;
-            if (matrix[i][j] == 2) proxySignCount++;
+            if (matrix[i][j] == 1) presentCount++;
+            else if (matrix[i][j] == 0) absentCount++;
+            else if (matrix[i][j] == 2) proxyCount++;
         }
 
-        if (absenceCount > 4 || proxySignCount > 1)
-            failCount++;
-        else
-            passCount++;
+        string status = (absentCount > 4 || proxyCount > 1) ? "Failed" : "Passed";
+        if (status == "Passed") passCount++;
+        else failCount++;
 
-        if (proxySignCount > 0) {
-            totalProxySign++;
-            proxySigners[totalProxySign] = names[i];
-        }
+        cout << fullNames[i] << ": "
+             << presentCount << " times present | "
+             << absentCount << " times absent | "
+             << proxyCount << " times proxy signed -> "
+             << status << endl;
     }
 
+    cout << "\n--- Summary ---\n";
+    cout << "Total students: " << studentCount << endl;
     cout << "Passed students: " << passCount << endl;
     cout << "Failed students: " << failCount << endl;
-    cout << "Students who had someone else sign for them: " << totalProxySign << endl;
-    cout << "Names of students who had someone else sign for them:" << endl;
-    for (int i = 0; i < totalProxySign; i++) {
-        cout << proxySigners[i] << endl;
-    }
 
     return 0;
 }
